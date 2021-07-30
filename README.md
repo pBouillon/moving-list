@@ -1,6 +1,6 @@
 # Moving list
 
-> Display what you don't want anymore and share the list with other !
+Display what you don't want anymore and share the list with others !
 
 ![Preview](docs/readme/readme-preview.jpg)
 
