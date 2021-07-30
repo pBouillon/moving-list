@@ -1,0 +1,13 @@
+
+<qrcode #qrCodeWrapper
+    [qrdata]="targetUrl"
+    [width]="256"
+    [level]="'M'"
+    [elementType]="'img'">
+</qrcode>
+
+<button class="btn btn-outline-secondary btn-sm small"
+        (click)="saveAsImage(qrCodeWrapper)">
+    <i class="bi bi-upc-scan"></i>
+    Download the QR Code for this list
+</button>
