@@ -1,0 +1,23 @@
+<div class="container">
+
+    <div class="d-flex justify-content-center my-2">
+        <div class="form-check form-switch">
+            <input type="checkbox"
+                class="form-check-input"
+                id="onlyAvailableArticlesCheck"
+                (click)="toggleFilter()">
+            <label class="form-check-label" for="onlyAvailableArticlesCheck">
+                Only show available articles
+            </label>
+          </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4 my-1">
+
+        <div class="col" *ngFor="let article of articles$ | async">
+            <app-article-card [article]="article"></app-article-card>
+        </div>
+
+    </div>
+
+</div>

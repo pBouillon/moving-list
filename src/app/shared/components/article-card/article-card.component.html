@@ -1,0 +1,45 @@
+<div class="card h-100 shadow">
+    <img [src]="imagePath"
+        [alt]="article.name"
+        (click)="openImage()"
+        class="card-img-top"
+        [ngClass]="{ 'unavailable': !article.isAvailable }"
+        title="See in a new tab"
+        loading="lazy"
+        decoding="async">
+    <div class="card-body">
+        <h5 [ngClass]="{ 'text-muted': !article.isAvailable }" class="card-title">{{ article.name }}</h5>
+
+        <p *ngIf="article.isAvailable; else unavailable" class="text-success">
+            <i class="bi bi-check2-circle"></i>&nbsp;Available
+        </p>
+
+        <ng-template #unavailable>
+            <p class="text-danger"><i class="bi bi-x-circle"></i>&nbsp;Already claimed</p>
+        </ng-template>
+
+        <p *ngIf="article.price === 0; else articlePrice" [ngClass]="{ 'text-muted': !article.isAvailable }">
+            Prix: <span class="fw-bold">Free</span>
+        </p>
+
+        <ng-template #articlePrice>
+            <p [ngClass]="{ 'text-muted': !article.isAvailable }">
+                Price: <span class="fw-bold">{{ article.price | currency }}</span>
+            </p>
+        </ng-template>
+
+        <p class="card-text" [ngClass]="{ 'text-muted': !article.isAvailable }">{{ article.description }}</p>
+    </div>
+
+    <div class="card-footer" *ngIf="article.isAvailable">
+        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+            <a [href]="telegramRef" target="_blank" class="btn btn-primary px-3">
+                <i class="bi bi-telegram"></i> Telegram
+            </a>
+            <a href="mailto:{{ mailRef }}" target="_blank" class="btn btn-outline-secondary px-3">
+                <i class="bi bi-envelope"></i> Email
+            </a>
+        </div>
+    </div>
+
+</div>
