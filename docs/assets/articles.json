@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Lava lamp",
+        "description": "This is the most amazing lamp that I have (but I do not have a picture of it)",
+        "price": 8,
+        "isAvailable": true
+    },
+    {
+        "name": "Huge desk",
+        "description": "It's pretty big but very convenient to work remotely",
+        "price": 50,
+        "imagePath": "desk.jpg"
+    },
+    {
+        "name": "White mug",
+        "description": "I took my best sips of tea with it",
+        "price": 0,
+        "isAvailable": true,
+        "imagePath": "mug.jpg"
+    },
+    {
+        "name": "My carpet",
+        "description": "Almost new, if you don't mind the coffee stains",
+        "price": 14,
+        "isAvailable": true,
+        "imagePath": "carpet.jpg"
+    }
+]
