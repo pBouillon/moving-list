@@ -19,7 +19,7 @@ export class QrCodeComponent {
    * Save the image wrapped by the wrapper to the device
    * @param qrCodeWrapper HTML Element wrapping the QR Code's image
    */
-  saveAsImage(qrCodeWrapper: any) {
+  openAsImage(qrCodeWrapper: any) {
     const qrCodeImage = qrCodeWrapper
       .qrcElement
       .nativeElement
@@ -29,26 +29,22 @@ export class QrCodeComponent {
     const extracted = this.toBase64(qrCodeImage);
 
     const encodedImage = new Blob([extracted], { type: 'image/png' });
-    this.downloadBlob(encodedImage);
+    this.openInANewTab(encodedImage);
   }
 
   /**
    * Download the provided blob
    * @param blob Content to be downloaded
    */
-  private downloadBlob(blob: Blob): void {
+  private openInANewTab(blob: Blob): void {
     // Prepare the link that will be used to trigger the download
     const link = document.createElement('a');
 
     // Pass the image as an object URL as the target
     const url = window.URL.createObjectURL(blob);
-    link.href = url;
 
-    // Specify the download's name
-    link.download = 'Moving List QR Code';
-
-    // Trigger the download
-    link.click();
+    // Open the resulting image in a new tab
+    window.open(url);
   }
 
   /**
