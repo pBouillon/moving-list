@@ -40,8 +40,7 @@ export class ArticleCardComponent {
    * Open the article's image in a new tab
    */
   openImage() : void {
-    const imageUrl = window.location.href + '/' + this.imagePath;
-    window.open(imageUrl, '_blank');
+    window.open(this.imagePath, '_blank');
   }
 
 }
