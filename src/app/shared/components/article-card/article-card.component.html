@@ -19,7 +19,7 @@
         </ng-template>
 
         <p *ngIf="article.price === 0; else articlePrice" [ngClass]="{ 'text-muted': !article.isAvailable }">
-            Prix: <span class="fw-bold">Free</span>
+            Price: <span class="fw-bold">Free</span>
         </p>
 
         <ng-template #articlePrice>
