@@ -2,7 +2,7 @@
 
 Display what you don't want anymore and share the list with others !
 
-![Preview](docs/readme/readme-preview.jpg)
+![Preview](readme-preview.jpg)
 
 ## Setup
 
