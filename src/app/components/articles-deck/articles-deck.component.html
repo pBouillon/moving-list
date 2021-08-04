@@ -12,12 +12,33 @@
           </div>
     </div>
 
-    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4 my-1">
+    <div *ngIf="(articles$ | async)?.length; else noArticles"
+        class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4 my-1">
 
         <div class="col" *ngFor="let article of articles$ | async">
             <app-article-card [article]="article"></app-article-card>
         </div>
 
     </div>
+
+    <ng-template #noArticles>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 mx-1 my-4 justify-content-center">
+
+            <div id="empty-articles-card" class="card h-100 shadow border-secondary">
+                <div class="card-body">
+                    <h5 class="card-title text-muted my-2">No articles to display</h5>
+
+                    <p class="card-text text-muted mt-4">
+                        Looks like everything went away really fast.
+                    </p>
+
+                    <p class="card-text text-muted mt-2">
+                        I may add some more later, stay tuned!
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </ng-template>
 
 </div>
