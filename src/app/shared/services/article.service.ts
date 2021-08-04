@@ -26,10 +26,11 @@ export class ArticleService {
 
   /**
    * Get all articles defined in the data source
+   * @param source Path to the file or the URL containing articles as JSON
    * @returns An observable containing all articles, sorted by their name
    */
-  getArticles(): Observable<Article[]> {
-    return this.http.get<Article[]>(this.DATA_SOURCE).pipe(
+  getArticles(source = this.DATA_SOURCE): Observable<Article[]> {
+    return this.http.get<Article[]>(source).pipe(
       map((articles: Article[]) => articles.sort((a, b) => a.name.localeCompare(b.name))),
     );
   }
