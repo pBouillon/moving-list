@@ -19,7 +19,7 @@ export class ArticlesDeckComponent implements OnInit {
   /**
    * Whether or not only the articles that are still available will be displayed
    */
-  showOnlyAvailable = new BehaviorSubject<boolean>(false);
+  showOnlyAvailable$ = new BehaviorSubject<boolean>(false);
 
   /**
    * @param articleService Service used to retrieve the articles from the source
@@ -34,7 +34,7 @@ export class ArticlesDeckComponent implements OnInit {
   ngOnInit(): void {
     this.articles$ = combineLatest([
       this.articleService.getArticles(),
-      this.showOnlyAvailable,
+      this.showOnlyAvailable$,
     ]).pipe(
       map(([articles, showOnlyAvailable]) => showOnlyAvailable
         ? articles.filter(article => article.isAvailable)
@@ -46,8 +46,8 @@ export class ArticlesDeckComponent implements OnInit {
    * Toggle the filter on article's availability
    */
   toggleFilter(): void {
-    const currentValue = this.showOnlyAvailable.getValue();
-    this.showOnlyAvailable.next(!currentValue);
+    const currentValue = this.showOnlyAvailable$.getValue();
+    this.showOnlyAvailable$.next(!currentValue);
   }
 
 }
