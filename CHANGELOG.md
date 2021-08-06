@@ -4,6 +4,7 @@
 
 | commit | author | content |
 |:------:|:-------|:-------|
+|b2a9415 | @pbouillon | Add missing unit tests |
 |33cfe96 | @pbouillon | Add a fallback case when there is no articles to display |
 |4730aa7 | @pbouillon | Fix broken image preview on click |
 |4730aa7 | @pbouillon | Fix broken image preview on click |
