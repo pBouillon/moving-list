@@ -10,20 +10,22 @@
     <div class="card-body">
         <h5 [ngClass]="{ 'text-muted': !article.isAvailable }" class="card-title">{{ article.name }}</h5>
 
-        <p *ngIf="article.isAvailable; else unavailable" class="text-success">
+        <p *ngIf="article.isAvailable; else unavailable"
+                id="availability" class="text-success">
             <i class="bi bi-check2-circle"></i>&nbsp;Available
         </p>
 
         <ng-template #unavailable>
-            <p class="text-danger"><i class="bi bi-x-circle"></i>&nbsp;Already claimed</p>
+            <p id="availability" class="text-danger"><i class="bi bi-x-circle"></i>&nbsp;Already claimed</p>
         </ng-template>
 
-        <p *ngIf="article.price === 0; else articlePrice" [ngClass]="{ 'text-muted': !article.isAvailable }">
+        <p id="price" *ngIf="article.price === 0; else articlePrice"
+                [ngClass]="{ 'text-muted': !article.isAvailable }">
             Price: <span class="fw-bold">Free</span>
         </p>
 
         <ng-template #articlePrice>
-            <p [ngClass]="{ 'text-muted': !article.isAvailable }">
+            <p id="price" [ngClass]="{ 'text-muted': !article.isAvailable }">
                 Price: <span class="fw-bold">{{ article.price | currency }}</span>
             </p>
         </ng-template>
