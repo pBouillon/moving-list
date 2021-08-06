@@ -37,13 +37,7 @@ export class QrCodeComponent {
    * @param blob Content to be downloaded
    */
   private openInANewTab(blob: Blob): void {
-    // Prepare the link that will be used to trigger the download
-    const link = document.createElement('a');
-
-    // Pass the image as an object URL as the target
     const url = window.URL.createObjectURL(blob);
-
-    // Open the resulting image in a new tab
     window.open(url);
   }
 
